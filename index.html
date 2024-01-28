@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentation Page</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0; /* Add this line to remove the default margin */
+}
+
+nav {
+    background: #333;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 10px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+section {
+    margin: 20px 0;
+    padding: 20px;
+    background: #f4f4f4;
+    border-radius: 5px;
+}
+
+section#classes-methods {
+    background: #e7f7fe;
+}
+
+section#userdocs {
+    background: #fef7e7;
+}
+
+section#devdocs {
+    background: #f7e7fe;
+}
+
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="#classes-methods">Classes & Methods</a></li>
+            <li><a href="#userdocs">User Guide</a></li>
+            <li><a href="#devdocs">Dev Docs for future improvement</a></li>
+        </ul>
+    </nav>
+
+    <section id="classes-methods">
+        <h1>ActionFS</h1>
+<p>The <code>ActionFS</code> library is a Node.js module providing a set of asynchronous file system operations. It's built on top of Node.js's <code>fs.promises</code> module and follows SOLID and OOP principles.</p>
+
+<h2>Class: ActionFS</h2>
+<p>This class encapsulates all the file system operations provided by the library.</p>
+<h3>Methods</h3>
+
+<h4><code>validateArgs(args, schema)</code></h4>
+<ul>
+    <li><strong>Purpose</strong>: Validates method arguments against a provided schema.</li>
+    <li><strong>Parameters</strong>:
+        <ul>
+            <li><code>args</code> (object): The arguments to validate.</li>
+            <li><code>schema</code> (object): The schema to validate against.</li>
+        </ul>
+    </li>
+    <li><strong>Returns</strong>: <code>boolean</code>. True if validation passes, throws an error otherwise.</li>
+</ul>
+<h4><code>createDirectory(path, options, [callback])</code></h4>
+<ul>
+    <li><strong>Purpose</strong>: Creates a new directory.</li>
+    <li><strong>Parameters</strong>:
+        <ul>
+            <li><code>path</code> (string): The path to the directory.</li>
+            <li><code>options</code> (object): The directory creation options.</li>
+            <li><code>callback</code> (Function, optional): An optional callback function.</li>
+        </ul>
+    </li>
+    <li><strong>Returns</strong>: <code>Promise&lt;void&gt;</code>.</li>
+</ul>
+<h4><code>readFile(path, options, [callback])</code></h4>
+<ul>
+    <li><strong>Purpose</strong>: Reads the contents of a file.</li>
+    <li><strong>Parameters</strong>:
+        <ul>
+            <li><code>path</code> (string): The path to the file.</li>
+            <li><code>options</code> (object): The read options.</li>
+            <li><code>callback</code> (Function, optional): An optional callback function.</li>
+        </ul>
+    </li>
+    <li><strong>Returns</strong>: <code>Promise&lt;string&gt;</code>. A promise that resolves with the file content.</li>
+</ul>
+<h4><code>createFile(path, content, options, [callback])</code></h4>
+<ul>
+    <li><strong>Purpose</strong>: Creates a new file with the specified content.</li>
+    <li><strong>Parameters</strong>:
+        <ul>
+            <li><code>path</code> (string): The path to the file.</li>
+            <li><code>content</code> (string|Buffer): The content to write to the file.</li>
+            <li><code>options</code> (object): The write options.</li>
+            <li><code>callback</code> (Function, optional): An optional callback function.</li>
+        </ul>
+    </li>
+    <li><strong>Returns</strong>: <code>Promise&lt;void&gt;</code>.</li>
+</ul>
+<h4><code>updateFile(path, content, options, [callback])</code></h4>
+<ul>
+    <li><strong>Purpose</strong>: Updates an existing file with new content, or creates it if it doesn't exist.</li>
+    <li><strong>Parameters</strong>:
+        <ul>
+            <li><code>path</code> (string): The path to the file.</li>
+            <li><code>content</code> (string|Buffer): The new content.</li>
+            <li><code>options</code> (object): The write options.</li>
+            <li><code>callback</code> (Function, optional): An optional callback function.</li>
+        </ul>
+    </li>
+    <li><strong>Returns</strong>: <code>Promise&lt;void&gt;</code>.</li>
+</ul>
+<h4><code>deleteFile(path, [callback])</code></h4>
+<ul>
+    <li><strong>Purpose</strong>: Deletes a file.</li>
+    <li><strong>Parameters</strong>:
+        <ul>
+            <li><code>path</code> (string): The path to the file.</li>
+            <li><code>callback</code> (Function, optional): An optional callback function.</li>
+        </ul>
+    </li>
+    <li><strong>Returns</strong>: <code>Promise&lt;void&gt;</code>.</li>
+</ul>
+<h4><code>copyFile(srcPath, destPath, [callback])</code></h4>
+<ul>
+    <li><strong>Purpose</strong>: Copies a file from one path to another.</li>
+    <li><strong>Parameters</strong>:
+        <ul>
+            <li><code>srcPath</code> (string): The path to the source file.</li>
+            <li><code>destPath</code> (string): The path to the destination file.</li>
+            <li><code>callback</code> (Function, optional): An optional callback function.</li>
+        </ul>
+    </li>
+    <li><strong>Returns</strong>: <code>Promise&lt;void&gt;</code>.</li>
+</ul>
+<h4><code>moveFile(oldPath, newPath, [callback])</code></h4>
+<ul>
+    <li><strong>Purpose</strong>: Moves a file from one path to another. This is effectively a rename operation.</li>
+    <li><strong>Parameters</strong>:
+        <ul>
+            <li><code>oldPath</code> (string): The current path of the file.</li>
+            <li><code>newPath</code> (string): The new path for the file.</li>
+            <li><code>callback</code> (Function, optional): An optional callback function.</li>
+        </ul>
+    </li>
+    <li><strong>Returns</strong>: <code>Promise&lt;void&gt;</code>.</li>
+</ul>
+<h4><code>renameFile(oldPath, newPath, [callback])</code></h4>
+<ul>
+    <li><strong>Purpose</strong>: Renames a file.</li>
+    <li><strong>Parameters</strong>:
+        <ul>
+            <li><code>oldPath</code> (string): The current path of the file.</li>
+            <li><code>newPath</code> (string): The new path (name) for the file.</li>
+            <li><code>callback</code> (Function, optional): An optional callback function.</li>
+        </ul>
+    </li>
+    <li><strong>Returns</strong>: <code>Promise&lt;void&gt;</code>.</li>
+</ul>
+<h4><code>fileExists(path, [callback])</code></h4>
+<ul>
+    <li><strong>Purpose</strong>: Checks if a file or directory exists at the given path.</li>
+    <li><strong>Parameters</strong>:
+        <ul>
+            <li><code>path</code> (string): The path to the file or directory.</li>
+            <li><code>callback</code> (Function, optional): An optional callback function.</li>
+        </ul>
+    </li>
+    <li><strong>Returns</strong>: <code>Promise&lt;boolean&gt;</code>. A promise that resolves with a boolean value.</li>
+</ul>
+<h4><code>createDirectoryStructure(filePath, [callback])</code></h4>
+<ul>
+    <li><strong>Purpose</strong>: Creates the directory structure needed for a given file path.</li>
+    <li><strong>Parameters</strong>:
+        <ul>
+            <li><code>filePath</code> (string): The file path for which to create the directory structure.</li>
+            <li><code>callback</code> (Function, optional): An optional callback function.</li>
+        </ul>
+    </li>
+    <li><strong>Returns</strong>: <code>Promise&lt;void&gt;</code>.</li>
+</ul>
+<h4><code>build(data, config, [callback])</code></h4>
+<ul>
+    <li><strong>Purpose</strong>: Builds a representation of the directory structure.</li>
+    <li><strong>Parameters</strong>:
+        <ul>
+            <li><code>data</code> (object): Data to use for building the structure (not used in this context).</li>
+            <li><code>config</code> (object): Configuration object containing path and type.</li>
+            <li><code>callback</code> (Function, optional): An optional callback function.</li>
+        </ul>
+    </li>
+    <li><strong>Returns</strong>: <code>Promise&lt;object&gt;</code>. A promise that resolves with the structure.</li>
+</ul>
+<h4><code>readDirectory(directoryPath, indent, [callback])</code></h4>
+<ul>
+    <li><strong>Purpose</strong>: Reads the directory structure and returns it with designated properties.</li>
+    <li><strong>Parameters</strong>:
+        <ul>
+            <li><code>directoryPath</code> (string): The path to the directory to read.</li>
+            <li><code>indent</code> (number, optional): The indentation level for formatting.</li>
+            <li><code>callback</code> (Function, optional): An optional callback function.</li>
+        </ul>
+    </li>
+    <li><strong>Returns</strong>: <code>Promise&lt;object[]&gt;</code>. A promise that resolves with the directory structure.</li>
+</ul>
+<h4><code>createDirectoryUsingObject(structure, basePath, [callback])</code></h4>
+<ul>
+    <li><strong>Purpose</strong>: Creates directories and files based on a structured object.</li>
+    <li><strong>Parameters</strong>:
+        <ul>
+            <li><code>structure</code> (object[]): The directory structure to create.</li>
+            <li><code>basePath</code> (string): The base path where the structure will be created.</li>
+            <li><code>callback</code> (Function, optional): An optional callback function.</li>
+        </ul>
+    </li>
+    <li><strong>Returns</strong>: <code>Promise&lt;void&gt;</code>.</li>
+</ul>
+
+<h2>Usage Example</h2>
+<p>Refer to the <code>example.js</code>, <code>replicateStructure.js</code>, <code>readFileExample.js</code> or <code>sampleExample.mjs</code> scripts in <em>example folder</em> for practical examples of using the <code>ActionFS</code> class.</p>
+
+<hr>
+
+<p>This part provides an overview of the <code>ActionFS</code> class and its methods. For detailed usage and advanced options, refer to the source code of each method.</p>
+
+    </section>
+
+    <section id="userdocs">
+        <h1>ActionFS User Guide</h1>
+<p>Welcome to the ActionFS User Guide. This document is intended to help you quickly learn how to use the ActionFS library for handling file system operations in Node.js.</p>
+
+<h2>Introduction</h2>
+<p>ActionFS is an asynchronous file system library built on Node.js's <code>fs.promises</code> module. It simplifies tasks like creating, reading, updating, deleting, copying, and moving files and directories.</p>
+
+<h2>Getting Started</h2>
+
+<h3>Installation</h3>
+<p>Currently, ActionFS is a custom library and not available on npm. To use it, you need to include it directly in your Node.js project.</p>
+<ol>
+    <li>Download the <code>action-fs.js</code> (for CommonJS) or <code>action-fs.mjs</code> (for ES Modules) file from the source repository.</li>
+    <li>Place the file in an appropriate directory within your project.</li>
+</ol>
+
+<h3>Importing the Library</h3>
+
+<h4>Using CommonJS Syntax</h4>
+<pre><code>const ActionFS = require('./index.js');</code></pre>
+
+<h3>Basic Usage</h3>
+<p>Create an instance of <code>ActionFS</code> to start using the library:</p>
+<pre><code>const actionFS = new ActionFS();</code></pre>
+
+<h1>Detailed Usage Examples</h1>
+<p>In this section, we'll go through some common use cases and demonstrate how to use the ActionFS library to accomplish them.</p>
+
+<h2>Creating a Directory</h2>
+
+<h3>To create a new directory:</h3>
+<pre><code>actionFS.createDirectory('path/to/directory', { recursive: true })
+    .then(() => console.log('Directory created successfully'))
+    .catch(error => console.error('Error creating directory:', error));
+</code></pre>
+<p>The { recursive: true } option allows creating nested directories.</p>
+<h3>Reading a File</h3>
+<p>To read the contents of a file:</p>
+<pre><code>actionFS.readFile('path/to/file.txt', { encoding: 'utf-8' })
+    .then(content => console.log('File content:', content))
+    .catch(error => console.error('Error reading file:', error));
+</code></pre>
+<p>This reads the file with the specified encoding and logs its content.</p>
+
+<h3>Creating a File</h3>
+<p>To create a new file with content:</p>
+<pre><code>const content = 'Hello, world!';
+actionFS.createFile('path/to/file.txt', content, {})
+    .then(() => console.log('File created successfully'))
+    .catch(error => console.error('Error creating file:', error));
+</code></pre>
+<p>This creates a file and writes the specified content to it.</p>
+<h3>Updating a File</h3>
+<p>To update an existing file or create it if it doesn't exist:</p>
+<pre><code>const newContent = 'Updated content';
+actionFS.updateFile('path/to/file.txt', newContent, {})
+    .then(() => console.log('File updated successfully'))
+    .catch(error => console.error('Error updating file:', error));
+</code></pre>
+<p>The method checks if the file exists and either updates it or creates a new file with the given content.</p>
+<h3>Moving a File</h3>
+<p>To move (or rename) a file:</p>
+<pre><code>actionFS.moveFile('path/to/oldFile.txt', 'path/to/newFile.txt')
+    .then(() => console.log('File moved successfully'))
+    .catch(error => console.error('Error moving file:', error));
+</code></pre>
+
+<h3>Renaming a File</h3>
+<p>To rename a file:</p>
+<pre><code>actionFS.renameFile('path/to/oldFile.txt', 'path/to/newFile.txt')
+    .then(() => console.log('File renamed successfully'))
+    .catch(error => console.error('Error renaming file:', error));
+</code></pre>
+<h3>Checking File or Directory Existence</h3>
+<p>To check if a file or directory exists at a given path:</p>
+<pre><code>actionFS.fileExists('path/to/fileOrDirectory')
+    .then(exists => {
+        if (exists) {
+            console.log('File or directory exists');
+        } else {
+            console.log('File or directory does not exist');
+        }
+    })
+    .catch(error => console.error('Error checking existence:', error));
+</code></pre>
+
+<h3>Creating Directory Structure for a File Path</h3>
+<p>To create the directory structure needed for a given file path:</p>
+<pre><code>actionFS.createDirectoryStructure('path/to/a/new/file.txt')
+    .then(() => console.log('Directory structure created successfully'))
+    .catch(error => console.error('Error creating directory structure:', error));
+</code></pre>
+<p>The <code>createDirectoryStructure</code> method creates the necessary directory structure so that the provided file path can be used.</p>
+<h3>Building a Directory Structure Representation</h3>
+<p>To build a representation of the directory structure:</p>
+<pre><code>actionFS.build({}, { path: 'path/to/directory', type: 'folder' })
+    .then(structure => console.log('Directory structure:', structure))
+    .catch(error => console.error('Error building structure:', error));
+</code></pre>
+<p>The <code>build</code> method generates a structured representation of the directory and its contents.</p>
+
+<h3>Reading Directory Contents</h3>
+<p>To read the contents of a directory and its subdirectories:</p>
+<pre><code>actionFS.readDirectory('path/to/directory')
+    .then(contents => console.log('Directory contents:', contents))
+    .catch(error => console.error('Error reading directory:', error));
+</code></pre>
+<p>This method reads the directory structure and returns an array with designated properties for each item (folders and files).</p>
+<h3>Creating Directory and Files from a Structured Object</h3>
+<p>To create directories and files based on a structured object:</p>
+<pre><code>const structure = [    {        type: 'folder',        name: 'folder1',        children: [            {                type: 'file',                name: 'file1.txt',                children: [                    { type: 'content', line: 'File content line 1' },                    { type: 'content', line: 'File content line 2' }                ]
+            }
+        ]
+    }
+];
+
+actionFS.createDirectoryUsingObject(structure, 'path/to/baseDirectory')
+    .then(() => console.log('Directories and files created successfully'))
+    .catch(error => console.error('Error creating directories and files:', error));
+</code></pre>
+<p>This method allows you to create directories and files based on a structured object representing the desired directory structure.</p>
+
+
+    </section>
+
+    <section id="devdocs">
+        <h1>ActionFS Developer Documentation</h1>
+<p>Welcome to the ActionFS Developer Guide. This document aims to provide developers with the information necessary to understand, extend, and debug the ActionFS library.</p>
+
+<h2>Introduction</h2>
+<p>ActionFS is an asynchronous file system library for Node.js, designed to simplify file system operations. It's built on top of the Node.js <code>fs.promises</code> module and adheres to SOLID and OOP principles.</p>
+
+<h2>Library Architecture</h2>
+<p>The ActionFS library is composed of a single main class, <code>ActionFS</code>, which encapsulates all file system operations. It utilizes static and instance methods to perform various tasks.</p>
+
+<h3>Class Structure</h3>
+<ul>
+    <li><strong>Class Name</strong>: <code>ActionFS</code></li>
+    <li><strong>Purpose</strong>: To provide asynchronous file system operations.</li>
+    <li><strong>Methods</strong>: Each method in the <code>ActionFS</code> class is designed to perform a specific file system operation such as reading, writing, copying, or deleting files and directories.</li>
+</ul>
+
+<h3>Key Components</h3>
+<ol>
+    <li><strong>Argument Validation</strong>: Each method uses the <code>validateArgs</code> static method to validate its arguments against a predefined schema.</li>
+    <li><strong>Error Handling</strong>: Proper error handling is implemented to ensure reliability and ease of debugging.</li>
+    <li><strong>Asynchronous Operations</strong>: All file system operations are asynchronous, using Promises.</li>
+</ol>
+<h2>Extending the Library</h2>
+<p>To add new functionality to the ActionFS library:</p>
+<ol>
+    <li><strong>Create a New Method</strong>: Methods should be created within the <code>ActionFS</code> class. Ensure that they follow the existing naming and coding conventions.</li>
+    <li><strong>Argument Validation</strong>: Add argument validation schemas for new methods.</li>
+    <li><strong>Documentation</strong>: Update both user and developer documentation to reflect the new changes.</li>
+</ol>
+
+<h1>Internal Workings and Error Handling</h1>
+
+<h2>Understanding Key Methods</h2>
+
+<p>Each method in the <code>ActionFS</code> class is designed for specific file system operations. Here's a breakdown of a few key methods:</p>
+
+<h3><code>validateArgs(args, schema)</code></h3>
+
+<ul>
+    <li><strong>Purpose</strong>: Validates method arguments against a provided schema.</li>
+    <li><strong>Parameters</strong>:
+        <ul>
+            <li><code>args</code> (object): The arguments to validate.</li>
+            <li><code>schema</code> (object): The schema to validate against.</li>
+        </ul>
+    </li>
+    <li><strong>Returns</strong>: <code>boolean</code>. True if validation passes, throws an error otherwise.</li>
+</ul>
+
+<!-- Repeat the above structure for other methods -->
+
+<h3><code>createDirectoryUsingObject(structure, basePath, [callback])</code></h3>
+
+<ul>
+    <li><strong>Purpose</strong>: Creates directories and files based on a structured object.</li>
+    <li><strong>Parameters</strong>:
+        <ul>
+            <li><code>structure</code> (object[]): The directory structure to create.</li>
+            <li><code>basePath</code> (string): The base path where the structure will be created.</li>
+            <li><code>callback</code> (Function, optional): An optional callback function.</li>
+        </ul>
+    </li>
+    <li><strong>Returns</strong>: <code>Promise&lt;void&gt;</code>.</li>
+</ul>
+<h4><code>readFile(path, options, [callback])</code></h4>
+<ul>
+    <li><strong>Purpose</strong>: Reads the contents of a file.</li>
+    <li><strong>Parameters</strong>:
+        <ul>
+            <li><code>path</code> (string): The path to the file.</li>
+            <li><code>options</code> (object): The read options.</li>
+            <li><code>callback</code> (Function, optional): An optional callback function.</li>
+        </ul>
+    </li>
+    <li><strong>Returns</strong>: <code>Promise&lt;string&gt;</code>. A promise that resolves with the file content.</li>
+</ul>
+<h4><code>createFile(path, content, options, [callback])</code></h4>
+<ul>
+    <li><strong>Purpose</strong>: Creates a new file with the specified content.</li>
+    <li><strong>Parameters</strong>:
+        <ul>
+            <li><code>path</code> (string): The path to the file.</li>
+            <li><code>content</code> (string|Buffer): The content to write to the file.</li>
+            <li><code>options</code> (object): The write options.</li>
+            <li><code>callback</code> (Function, optional): An optional callback function.</li>
+        </ul>
+    </li>
+    <li><strong>Returns</strong>: <code>Promise&lt;void&gt;</code>.</li>
+</ul>
+<h4><code>updateFile(path, content, options, [callback])</code></h4>
+<ul>
+    <li><strong>Purpose</strong>: Updates an existing file with new content, or creates it if it doesn't exist.</li>
+    <li><strong>Parameters</strong>:
+        <ul>
+            <li><code>path</code> (string): The path to the file.</li>
+            <li><code>content</code> (string|Buffer): The new content.</li>
+            <li><code>options</code> (object): The write options.</li>
+            <li><code>callback</code> (Function, optional): An optional callback function.</li>
+        </ul>
+    </li>
+    <li><strong>Returns</strong>: <code>Promise&lt;void&gt;</code>.</li>
+</ul>
+<h4><code>deleteFile(path, [callback])</code></h4>
+<ul>
+    <li><strong>Purpose</strong>: Deletes a file.</li>
+    <li><strong>Parameters</strong>:
+        <ul>
+            <li><code>path</code> (string): The path to the file.</li>
+            <li><code>callback</code> (Function, optional): An optional callback function.</li>
+        </ul>
+    </li>
+    <li><strong>Returns</strong>: <code>Promise&lt;void&gt;</code>.</li>
+</ul>
+<h4><code>copyFile(srcPath, destPath, [callback])</code></h4>
+<ul>
+    <li><strong>Purpose</strong>: Copies a file from one path to another.</li>
+    <li><strong>Parameters</strong>:
+        <ul>
+            <li><code>srcPath</code> (string): The path to the source file.</li>
+            <li><code>destPath</code> (string): The path to the destination file.</li>
+            <li><code>callback</code> (Function, optional): An optional callback function.</li>
+        </ul>
+    </li>
+    <li><strong>Returns</strong>: <code>Promise&lt;void&gt;</code>.</li>
+</ul>
+<h4><code>moveFile(oldPath, newPath, [callback])</code></h4>
+<ul>
+    <li><strong>Purpose</strong>: Moves a file from one path to another. This is effectively a rename operation.</li>
+    <li><strong>Parameters</strong>:
+        <ul>
+            <li><code>oldPath</code> (string): The current path of the file.</li>
+            <li><code>newPath</code> (string): The new path for the file.</li>
+            <li><code>callback</code> (Function, optional): An optional callback function.</li>
+        </ul>
+    </li>
+    <li><strong>Returns</strong>: <code>Promise&lt;void&gt;</code>.</li>
+</ul>
+<h4><code>renameFile(oldPath, newPath, [callback])</code></h4>
+<ul>
+    <li><strong>Purpose</strong>: Renames a file.</li>
+    <li><strong>Parameters</strong>:
+        <ul>
+            <li><code>oldPath</code> (string): The current path of the file.</li>
+            <li><code>newPath</code> (string): The new path (name) for the file.</li>
+            <li><code>callback</code> (Function, optional): An optional callback function.</li>
+        </ul>
+    </li>
+    <li><strong>Returns</strong>: <code>Promise&lt;void&gt;</code>.</li>
+</ul>
+<h4><code>fileExists(path, [callback])</code></h4>
+<ul>
+    <li><strong>Purpose</strong>: Checks if a file or directory exists at the given path.</li>
+    <li><strong>Parameters</strong>:
+        <ul>
+            <li><code>path</code> (string): The path to the file or directory.</li>
+            <li><code>callback</code> (Function, optional): An optional callback function.</li>
+        </ul>
+    </li>
+    <li><strong>Returns</strong>: <code>Promise&lt;boolean&gt;</code>. A promise that resolves with a boolean value.</li>
+</ul>
+<h4><code>build(data, config, [callback])</code></h4>
+<ul>
+    <li><strong>Purpose</strong>: Builds a representation of the directory structure.</li>
+    <li><strong>Parameters</strong>:
+        <ul>
+            <li><code>data</code> (object): Data to use for building the structure (not used in this context).</li>
+            <li><code>config</code> (object): Configuration object containing path and type.</li>
+            <li><code>callback</code> (Function, optional): An optional callback function.</li>
+        </ul>
+    </li>
+    <li><strong>Returns</strong>: <code>Promise&lt;object&gt;</code>. A promise that resolves with the structure.</li>
+</ul>
+<h4><code>readDirectory(directoryPath, indent, [callback])</code></h4>
+<ul>
+    <li><strong>Purpose</strong>: Reads the directory structure and returns it with designated properties.</li>
+    <li><strong>Parameters</strong>:
+        <ul>
+            <li><code>directoryPath</code> (string): The path to the directory to read.</li>
+            <li><code>indent</code> (number, optional): The indentation level for formatting.</li>
+            <li><code>callback</code> (Function, optional): An optional callback function.</li>
+        </ul>
+    </li>
+    <li><strong>Returns</strong>: <code>Promise&lt;object[]&gt;</code>. A promise that resolves with the directory structure.</li>
+</ul>
+<h4><code>createDirectoryUsingObject(structure, basePath, [callback])</code></h4>
+<ul>
+    <li><strong>Purpose</strong>: Creates directories and files based on a structured object.</li>
+    <li><strong>Parameters</strong>:
+        <ul>
+            <li><code>structure</code> (object[]): The directory structure to create.</li>
+            <li><code>basePath</code> (string): The base path where the structure will be created.</li>
+            <li><code>callback</code> (Function, optional): An optional callback function.</li>
+        </ul>
+    </li>
+    <li><strong>Returns</strong>: <code>Promise&lt;void&gt;</code>.</li>
+</ul>
+
+    </section>
+</body>
+</html>
